@@ -1,10 +1,10 @@
 package sparta.eng61.com;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import sparta.eng61.com.POJOByName.CityNamePOJO;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ConnectionManager {
@@ -17,7 +17,7 @@ public class ConnectionManager {
     public CityNamePOJO readURL(String link){
         try {
             cityNamePOJO = objectMapper.readValue(new URL(link), CityNamePOJO.class);
-        } catch (MalformedURLException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return cityNamePOJO;
