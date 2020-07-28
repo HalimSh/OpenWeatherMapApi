@@ -27,4 +27,6 @@ hs_err_pid*
 .idea/jarRepositories.xml
 .idea/misc.xml
 .idea/vcs.xml
-/[Rl]resources/
+
+/src/test/resources
+*.properties
