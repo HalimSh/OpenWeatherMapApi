@@ -22,8 +22,8 @@ public class CityNameDTO {
     }
 
     // Weather Getters
-    public int getWeatherID() {
-        return cityNamePOJO.getWeather().indexOf(0);
+    public int getWeatherID(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
     }
 
     //Clouds Getters
