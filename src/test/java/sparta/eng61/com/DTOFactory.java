@@ -1,6 +1,10 @@
 package sparta.eng61.com;
 
+import sparta.eng61.com.POJOByName.CityNamePOJO;
+
 public class DTOFactory {
+
+    CityNamePOJO cityNamePOJO;
 
     /*public static int getDTO() {
         if (url.contains("q=") || url.contains("weather?id=")) {
@@ -16,10 +20,10 @@ public class DTOFactory {
         //return dtoNumber;
     }*/
 
-    static public DtoType checkDTO(int inputFromInjector) {
+     public Object checkDTO(int inputFromInjector) {
         switch (inputFromInjector) {
             case 1:
-                return cityNameDTO;
+                return cityNamePOJO = new CityNamePOJO();
             case 2:
                 return cityIdDTO;
             case 3:
@@ -27,5 +31,6 @@ public class DTOFactory {
             case 4:
                 return zipcodeDTO;
         }
-    }
+         return ;
+     }
 }
