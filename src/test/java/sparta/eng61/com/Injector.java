@@ -1,20 +1,22 @@
 package sparta.eng61.com;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Injector {
     static String url;
 
     public int getDTO(String path) {
         if (url.contains("q=") || url.contains("weather?id=")) {
-            DtoType cityNameDTO = POJOFactory.checkPOJO(1);
+            DtoType cityNameDTO = DTOFactory.checkDTO(1);
 
         } else if (url.contains("lat")) {
-            DtoType cityNameDTO = POJOFactory.checkPOJO(2);
+            DtoType cityNameDTO = DTOFactory.checkDTO(2);
 
         } else if (url.contains("group?id=")) {
-            DtoType cityNameDTO = POJOFactory.checkPOJO(3);
+            DtoType cityNameDTO = DTOFactory.checkDTO(3);
 
         } else if (url.contains("zip=")) {
-            DtoType cityNameDTO = POJOFactory.checkPOJO(4);
+            DtoType cityNameDTO = DTOFactory.checkDTO(4);
 
         }
 

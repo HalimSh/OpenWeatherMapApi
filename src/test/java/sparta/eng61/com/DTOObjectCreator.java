@@ -1,8 +1,7 @@
 package sparta.eng61.com;
 
 public class DTOObjectCreator {
-
-    public DTOObjectCreator getDtoObject() {
+    public DtoObj getDtoObject() {
         DTOFactory.checkDTO();
 
     }
