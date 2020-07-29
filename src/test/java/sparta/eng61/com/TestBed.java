@@ -15,7 +15,7 @@ public class TestBed {
     ConnectionManager connectionManager = new ConnectionManager();
     private CityNamePOJO cityNamePOJO;
 
-    URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a");
+    URL url = new URL("URL");
 
     public TestBed() throws MalformedURLException {
     }
