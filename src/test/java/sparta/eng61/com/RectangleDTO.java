@@ -1,7 +1,9 @@
-package sparta.eng61.com;
+package java.sparta.eng61.com;
 
 import sparta.eng61.com.POJOByRectangle.MultipleCitiesInRectanglePOJO;
 import sparta.eng61.com.POJOByRectangle.RectLists;
+
+import java.sparta.eng61.com.ConnectionManager;
 
 public class RectangleDTO {
     private MultipleCitiesInRectanglePOJO multipleCitiesInRectanglePOJO;

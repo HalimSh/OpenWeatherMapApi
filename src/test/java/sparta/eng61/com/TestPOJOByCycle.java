@@ -1,4 +1,4 @@
-package sparta.eng61.com;
+package java.sparta.eng61.com;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import sparta.eng61.com.ByCycleDTO;
 
 public class TestPOJOByCycle {
     ConnectionManager connectionManager = new ConnectionManager();

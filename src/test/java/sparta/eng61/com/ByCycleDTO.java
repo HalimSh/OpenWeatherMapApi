@@ -1,7 +1,14 @@
-package sparta.eng61.com;
+package java.sparta.eng61.com;
 
-import sparta.eng61.com.ConnectionManager;
-import sparta.eng61.com.POJOByCycle.*;
+import java.sparta.eng61.com.ConnectionManager;
+import java.sparta.eng61.com.POJOByCycle.*;
+import sparta.eng61.com.POJOByCycle.MultipleCitiesByCyclePOJO;
+import sparta.eng61.com.POJOByCycle.List;
+import sparta.eng61.com.POJOByCycle.Clouds;
+import sparta.eng61.com.POJOByCycle.Coord;
+import sparta.eng61.com.POJOByCycle.Sys;
+import sparta.eng61.com.POJOByCycle.Wind;
+import sparta.eng61.com.POJOByCycle.Weather;
 
 public class ByCycleDTO {
     private MultipleCitiesByCyclePOJO multipleCitiesByCyclePOJO;
