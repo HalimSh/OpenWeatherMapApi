@@ -1,12 +1,16 @@
 package sparta.eng61.com;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import sparta.eng61.com.POJOByCityID.MultipleCityIDsPOJO;
+import sparta.eng61.com.POJOByCycle.MultipleCitiesByCyclePOJO;
 import sparta.eng61.com.POJOByName.CityNamePOJO;
+import sparta.eng61.com.POJOByRectangle.MultipleCitiesInRectanglePOJO;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 
 public class ConnectionManager {
 
@@ -14,19 +18,14 @@ public class ConnectionManager {
 
     private HttpURLConnection httpURLConnection;
     private CityNamePOJO cityNamePOJO;
-
-    public CityNamePOJO readURL(String link){
-        try {
-            cityNamePOJO = objectMapper.readValue(new URL(link), CityNamePOJO.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return cityNamePOJO;
-    }
+    private MultipleCitiesInRectanglePOJO multipleCitiesInRectanglePOJO;
+    private MultipleCitiesByCyclePOJO multipleCitiesByCyclePOJO;
+    private MultipleCityIDsPOJO multipleCityIDsPOJO;
+    private static Properties properties;
 
 
     public CityNamePOJO getByName(String name){
-        String url = "api.openweathermap.org/data/2.5/weather?q=" + name + "&appid=" + APIKEY;
+        String url = "api.openweathermap.org/data/2.5/weather?q=" + name + "&appid=" + properties.getProperty("apikey");
         try {
             cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
         } catch (IOException e) {
@@ -37,7 +36,7 @@ public class ConnectionManager {
 
 
     public CityNamePOJO getUSCityURL(String cityName, String stateCode){
-        String url = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "," + stateCode + "&appid=" + APIKey;
+        String url = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "," + stateCode + "&appid=" + properties.getProperty("apikey");
         try {
             cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
         } catch (IOException e) {
@@ -47,7 +46,7 @@ public class ConnectionManager {
     }
 
     public CityNamePOJO getCityByCountryCodeURL(String cityName, String countryCode){
-        String url = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "," + countryCode + "&appid=" + APIKey;
+        String url = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "," + countryCode + "&appid=" + properties.getProperty("apikey") ;
         try {
             cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
         } catch (IOException e) {
@@ -57,30 +56,68 @@ public class ConnectionManager {
     }
 
 
-    public String getCityIDURL(int cityID) {
-        return "api.openweathermap.org/data/2.5/weather?id=" + cityID + "&appid=" + APIKEY;
-    }
-
-    public String getCityByCoordinates (int lat, int lon) {
-        return "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&long=" + lon + "&appid=" + APIKEY;
-    }
-
-    public String getCityByZipCode (String zip, String countryCode) throws MalformedURLException {
-        String url = "api.openweathermap.org/data/2.5/weather?zip=" + zip + "," + countryCode  + "&appid=" + APIKEY;
-        cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
+    public CityNamePOJO getCityIDURL(int cityID){
+        String url = "api.openweathermap.org/data/2.5/weather?id=" + cityID + "&appid=" + properties.getProperty("apikey");
+        try {
+            cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return cityNamePOJO;
     }
 
-    public String getMultipleCitiesByZone (int topLeft, int bottomLeft, int bottomRight, int topRight, int zoom) {
-        return "api.openweathermap.org/data/2.5/box/city?bbox=" + topLeft + "," + bottomLeft + "," + bottomRight + "," + topRight + "," + "," + zoom;
+
+    public CityNamePOJO getCityByCoordinates (int lat, int lon){
+        String url = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&long=" + lon + "&appid=" + properties.getProperty("apikey");
+        try {
+            cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cityNamePOJO;
     }
 
-    public String getMultipleCitiesByCycle (int lat, int lon, int count) {
-        return "api.openweathermap.org/data/2.5/find?lat=" + lat + "&lon=" + lon + "&cnt=" + count;
+
+    public CityNamePOJO getCityByZipCode (String zip, String countryCode){
+        String url = "api.openweathermap.org/data/2.5/weather?zip=" + zip + "," + countryCode  + "&appid=" + properties.getProperty("apikey");
+        try {
+            cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cityNamePOJO;
     }
 
-    public String getMutlipleCitiesByID (int cityID) {
-        return "api.openweathermap.org/data/2.5/find?id=" + cityID;
+
+    public MultipleCitiesInRectanglePOJO getMultipleCitiesByZone (int topLeft, int bottomLeft, int bottomRight, int topRight, int zoom){
+        String url = "api.openweathermap.org/data/2.5/box/city?bbox=" + topLeft + "," + bottomLeft + "," + bottomRight + "," + topRight + "," + "," + zoom;
+        try {
+            multipleCitiesInRectanglePOJO = objectMapper.readValue(new URL(url), MultipleCitiesInRectanglePOJO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return multipleCitiesInRectanglePOJO;
+    }
+
+
+    public MultipleCitiesByCyclePOJO getMultipleCitiesByCycle (int lat, int lon, int count){
+        String url = "api.openweathermap.org/data/2.5/find?lat=" + lat + "&lon=" + lon + "&cnt=" + count;
+        try {
+            multipleCitiesByCyclePOJO = objectMapper.readValue(new URL(url), MultipleCitiesByCyclePOJO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return multipleCitiesByCyclePOJO;
+    }
+
+    public MultipleCityIDsPOJO getMutlipleCitiesByID (int cityID){
+        String url = "api.openweathermap.org/data/2.5/find?id=" + cityID;
+        try {
+            multipleCityIDsPOJO = objectMapper.readValue(new URL(url), MultipleCityIDsPOJO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return multipleCityIDsPOJO;
     }
 
     public HttpURLConnection readAPIHeaders(String link) {
