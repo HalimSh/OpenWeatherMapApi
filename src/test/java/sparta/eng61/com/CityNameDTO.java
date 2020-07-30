@@ -2,7 +2,7 @@ package sparta.eng61.com;
 
 import sparta.eng61.com.POJOByName.*;
 
-public class CityNameDTO {
+public class CityNameDTO extends DTO{
 
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
