@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class AppTest 
 {
     HeadersDTO headersDTO = new HeadersDTO("HTTP URL");
-    CityNameDTO cityNameDTO = new CityNameDTO("HTTP URL");
+    //CityNameDTO cityNameDTO = new CityNameDTO("HTTP URL");
     ConnectionManager manager = new ConnectionManager();
     Controller controller = new Controller();
     DTO byname = manager.getByName("London");
@@ -29,7 +29,7 @@ public class AppTest
     @Test
     @DisplayName("Checking the Day, Date and time of when the request was made.")
     public void dayDateTimeTest(){
-        Assertions.assertEquals("London",byname.cityNameDTO.getName());
+        Assertions.assertEquals("London", controller.getCityNameDTO().getName());
     }
 
     @Test
