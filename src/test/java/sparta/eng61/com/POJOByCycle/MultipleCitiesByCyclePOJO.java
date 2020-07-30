@@ -8,7 +8,7 @@ public class MultipleCitiesByCyclePOJO {
 
     private Long count;
 
-    private java.util.List<sparta.eng61.com.POJOByCycle.List> list;
+    private java.util.List<List> list;
 
     private String message;
 
