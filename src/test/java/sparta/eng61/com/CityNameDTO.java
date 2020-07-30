@@ -2,16 +2,23 @@ package sparta.eng61.com;
 
 import sparta.eng61.com.POJOByName.*;
 
-public class CityNameDTO extends DTO{
+public class CityNameDTO {
 
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
-    Injector injector = new Injector();
 
-
-    public CityNameDTO() {
+    public CityNameDTO(String name) {
         connectionManager = new ConnectionManager();
-        cityNamePOJO = injector.getPojoPayload();
+        cityNamePOJO = connectionManager.getByName(name);
+    }
+    public CityNameDTO(String cityName, String stateCode) {
+        connectionManager = new ConnectionManager();
+        cityNamePOJO = connectionManager.getUSCityURL(cityName,stateCode);
+    }
+
+    public CityNameDTO(String cityName, String countryCode) {
+        connectionManager = new ConnectionManager();
+        cityNamePOJO = connectionManager.getCityByCountryCodeURL(cityName,countryCode);
     }
 
     // Coord Getters

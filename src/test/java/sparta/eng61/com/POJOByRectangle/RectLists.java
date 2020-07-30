@@ -2,7 +2,9 @@
 package sparta.eng61.com.POJOByRectangle;
 
 
-public class List {
+import java.util.List;
+
+public class RectLists {
 
 
     private Clouds clouds;
@@ -79,7 +81,7 @@ public class List {
         this.rain = rain;
     }
 
-    public java.util.List<Weather> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 

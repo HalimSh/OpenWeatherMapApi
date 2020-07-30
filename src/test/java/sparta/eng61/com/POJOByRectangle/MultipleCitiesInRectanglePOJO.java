@@ -2,6 +2,8 @@
 package sparta.eng61.com.POJOByRectangle;
 
 
+import java.util.List;
+
 public class MultipleCitiesInRectanglePOJO {
 
      
@@ -11,7 +13,7 @@ public class MultipleCitiesInRectanglePOJO {
      
     private String cod;
    
-    private java.util.List<sparta.eng61.com.POJOByRectangle.List> list;
+    private List<RectLists> rectLists;
 
     public Double getCalctime() {
         return calctime;
@@ -37,12 +39,12 @@ public class MultipleCitiesInRectanglePOJO {
         this.cod = cod;
     }
 
-    public java.util.List<sparta.eng61.com.POJOByRectangle.List> getList() {
-        return list;
+    public java.util.List<RectLists> getLists() {
+        return rectLists;
     }
 
-    public void setList(java.util.List<sparta.eng61.com.POJOByRectangle.List> list) {
-        this.list = list;
+    public void setLists(java.util.List<RectLists> rectLists) {
+        this.rectLists = rectLists;
     }
 
 }
