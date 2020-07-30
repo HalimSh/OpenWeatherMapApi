@@ -2,7 +2,9 @@
 package sparta.eng61.com.POJOByCityID;
 
 
-public class List {
+import java.util.List;
+
+public class Lists {
 
 
     private Clouds clouds;
@@ -89,7 +91,7 @@ public class List {
         this.visibility = visibility;
     }
 
-    public java.util.List<Weather> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 

@@ -10,7 +10,7 @@ public class ByCycleDTO {
 
     public void CitiesCycle(String url) {
         connectionManager = new ConnectionManager();
-        multipleCitiesByCyclePOJO = connectionManager.readURLCycle(url);
+        multipleCitiesByCyclePOJO = connectionManager.getMultipleCitiesByCycle();
     }
 
     public String gettingCod() {

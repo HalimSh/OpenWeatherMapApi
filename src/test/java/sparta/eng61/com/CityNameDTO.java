@@ -7,9 +7,18 @@ public class CityNameDTO {
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
 
-    public CityNameDTO(String url) {
+    public CityNameDTO(String name) {
         connectionManager = new ConnectionManager();
-        cityNamePOJO = connectionManager.readURL(url);
+        cityNamePOJO = connectionManager.getByName(name);
+    }
+    public CityNameDTO(String cityName, String stateCode) {
+        connectionManager = new ConnectionManager();
+        cityNamePOJO = connectionManager.getUSCityURL(cityName,stateCode);
+    }
+
+    public CityNameDTO(String cityName, String countryCode) {
+        connectionManager = new ConnectionManager();
+        cityNamePOJO = connectionManager.getCityByCountryCodeURL(cityName,countryCode);
     }
 
     // Coord Getters

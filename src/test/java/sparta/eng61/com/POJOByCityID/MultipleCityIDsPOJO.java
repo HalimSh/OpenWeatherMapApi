@@ -2,12 +2,14 @@
 package sparta.eng61.com.POJOByCityID;
 
 
+import java.util.List;
+
 public class MultipleCityIDsPOJO {
 
 
     private Long cnt;
 
-    private java.util.List<sparta.eng61.com.POJOByCityID.List> list;
+    private List<Lists> lists;
 
     public Long getCnt() {
         return cnt;
@@ -17,12 +19,12 @@ public class MultipleCityIDsPOJO {
         this.cnt = cnt;
     }
 
-    public java.util.List<sparta.eng61.com.POJOByCityID.List> getList() {
-        return list;
+    public java.util.List<Lists> getLists() {
+        return lists;
     }
 
-    public void setList(java.util.List<sparta.eng61.com.POJOByCityID.List> list) {
-        this.list = list;
+    public void setLists(java.util.List<Lists> lists) {
+        this.lists = lists;
     }
 
 }
