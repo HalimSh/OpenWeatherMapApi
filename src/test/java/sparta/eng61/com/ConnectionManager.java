@@ -23,6 +23,10 @@ public class ConnectionManager {
         return cityNamePOJO;
     }
 
+    public URL getCityNameURL (String cityName)
+
+//    "api.openweathermap.org/data/2.5/weather?q=" + CityName "&appid="+ APIKey
+
 
     public HttpURLConnection readAPIHeaders(String link) {
         try {
