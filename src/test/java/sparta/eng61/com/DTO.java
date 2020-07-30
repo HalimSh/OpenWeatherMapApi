@@ -2,10 +2,13 @@ package sparta.eng61.com;
 
 public abstract class DTO {
 
-    CityNameDTO cityNameDTO;
+    private CityNameDTO cityNameDTO;
+    private ByCycleDTO byCycleDTO;
+    private HeadersDTO headersDTO;
 
-    public  CityNameDTO getCityNameDTO() {
-        return cityNameDTO = new CityNameDTO("name");
+    public DTO() {
+    cityNameDTO = new CityNameDTO();
+    byCycleDTO = new ByCycleDTO();
+    headersDTO = new HeadersDTO("dvlnhjdskv.k");
     }
-
 }

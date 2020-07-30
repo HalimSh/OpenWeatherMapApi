@@ -6,10 +6,12 @@ public class CityNameDTO extends DTO{
 
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
+    Injector injector;
 
-    public CityNameDTO(String url) {
+
+    public CityNameDTO() {
         connectionManager = new ConnectionManager();
-        cityNamePOJO = connectionManager.readURL(url);
+        cityNamePOJO = injector.getPojoPayload();
     }
 
     // Coord Getters

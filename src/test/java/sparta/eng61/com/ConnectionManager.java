@@ -14,7 +14,6 @@ import java.util.Properties;
 
 public class ConnectionManager {
 
-    private static final Object DTO = ;
     ObjectMapper objectMapper = new ObjectMapper();
 
     private HttpURLConnection httpURLConnection;
@@ -23,12 +22,17 @@ public class ConnectionManager {
     private MultipleCitiesByCyclePOJO multipleCitiesByCyclePOJO;
     private MultipleCityIDsPOJO multipleCityIDsPOJO;
     private static Properties properties;
+    Injector injector;
+
+    CityNameDTO cityNameDTO = new CityNameDTO();
 
 
     public DTO getByName(String name){
+
         String url = "api.openweathermap.org/data/2.5/weather?q=" + name + "&appid=" + properties.getProperty("apikey");
         try {
             cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
+            injector.setPojoPayload(cityNamePOJO);
         } catch (IOException e) {
             e.printStackTrace();
         }
