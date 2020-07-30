@@ -14,6 +14,7 @@ import java.util.Properties;
 
 public class ConnectionManager {
 
+    private static final Object DTO = ;
     ObjectMapper objectMapper = new ObjectMapper();
 
     private HttpURLConnection httpURLConnection;
@@ -24,14 +25,14 @@ public class ConnectionManager {
     private static Properties properties;
 
 
-    public CityNamePOJO getByName(String name){
+    public DTO getByName(String name){
         String url = "api.openweathermap.org/data/2.5/weather?q=" + name + "&appid=" + properties.getProperty("apikey");
         try {
             cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return cityNamePOJO;
+        return DTO;
     }
 
 
