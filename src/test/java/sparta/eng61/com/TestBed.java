@@ -3,7 +3,6 @@ package sparta.eng61.com;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import sparta.eng61.com.POJOByName.CityNamePOJO;
-import sparta.eng61.com.POJOByName.Clouds;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

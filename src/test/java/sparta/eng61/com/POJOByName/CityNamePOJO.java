@@ -1,7 +1,18 @@
 
 package sparta.eng61.com.POJOByName;
 
+
+
+
+import sparta.eng61.com.POJOByName.*;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
+import java.util.Properties;
 
 
 public class CityNamePOJO {
@@ -20,6 +31,26 @@ public class CityNamePOJO {
     private Long visibility;
     private List<Weather> weather;
     private Wind wind;
+    URL url;
+    Properties properties = new Properties();
+
+
+
+    public int getResponseCode(String cityName) throws IOException {
+        try {
+            properties.load(new FileReader("src/test/resources/ApiKey.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+             url = new URL("http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=" + properties.getProperty("apikey"));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+        int responseCode = httpURLConnection.getResponseCode();
+        return responseCode;
+    }
 
     public String getBase() {
         return base;

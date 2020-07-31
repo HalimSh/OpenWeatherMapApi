@@ -1,15 +1,15 @@
 package sparta.eng61.com;
 
-import sparta.eng61.com.POJOByName.*;
+import sparta.eng61.com.POJOByName.CityNamePOJO;
 
 public class CityNameDTO {
 
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
 
-    public CityNameDTO(String name) {
+    public CityNameDTO(String cityName) {
         connectionManager = new ConnectionManager();
-        cityNamePOJO = connectionManager.getByName(name);
+        cityNamePOJO = connectionManager.getByName(cityName);
     }
     public CityNameDTO(String cityName, String stateCode) {
         connectionManager = new ConnectionManager();
