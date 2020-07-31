@@ -20,17 +20,17 @@ public class DTOFactory {
         //return dtoNumber;
     }*/
 
-     public Object checkDTO(int inputFromInjector) {
-        switch (inputFromInjector) {
-            case 1:
-                return cityNamePOJO = new CityNamePOJO();
-            case 2:
-                return cityIdDTO;
-            case 3:
-                return citiesIdDTO;
-            case 4:
-                return zipcodeDTO;
-        }
-         return ;
-     }
+//     public Object checkDTO(int inputFromInjector) {
+//        switch (inputFromInjector) {
+//            case 1:
+//                return cityNamePOJO = new CityNamePOJO();
+//            case 2:
+//                return cityIdDTO;
+//            case 3:
+//                return citiesIdDTO;
+//            case 4:
+//                return zipcodeDTO;
+//        }
+//         return ;
+//     }
 }

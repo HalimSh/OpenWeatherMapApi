@@ -6,7 +6,7 @@ public class CityNameDTO extends DTO{
 
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
-    Injector injector;
+    Injector injector = new Injector();
 
 
     public CityNameDTO() {

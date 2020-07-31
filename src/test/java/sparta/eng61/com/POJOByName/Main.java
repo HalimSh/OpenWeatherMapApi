@@ -2,14 +2,18 @@
 package sparta.eng61.com.POJOByName;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Main {
 
-
+    @JsonProperty("feels_like")
     private Double feelsLike;
     private Long humidity;
     private Long pressure;
     private Double temp;
+    @JsonProperty("temp_max")
     private Double tempMax;
+    @JsonProperty("temp_min")
     private Double tempMin;
 
     public Double getFeelsLike() {
