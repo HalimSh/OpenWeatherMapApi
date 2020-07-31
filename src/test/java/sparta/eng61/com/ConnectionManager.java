@@ -9,7 +9,6 @@ import sparta.eng61.com.POJOByRectangle.MultipleCitiesInRectanglePOJO;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
@@ -28,7 +27,7 @@ public class ConnectionManager {
     CityNameDTO cityNameDTO;
 
 
-    public CityNameDTO getByName(String name){
+    public CityNamePOJO getByName(String name){
 //        CityNameDTO dto = new CityNameDTO();
         try {
             properties.load(new FileReader("src/test/resources/ApiKey.properties"));
@@ -42,7 +41,7 @@ public class ConnectionManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return cityNameDTO;
+        return cityNamePOJO;
     }
 
 
