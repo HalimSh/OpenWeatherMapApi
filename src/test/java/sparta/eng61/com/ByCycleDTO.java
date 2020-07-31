@@ -8,10 +8,10 @@ public class ByCycleDTO {
     private ConnectionManager connectionManager;
     private List list;
 
-    public void CitiesCycle(String url) {
-        connectionManager = new ConnectionManager();
-//        multipleCitiesByCyclePOJO = connectionManager.readURLCycle(url);
-    }
+//    public void CitiesCycle(String url) {
+//        connectionManager = new ConnectionManager();
+//        multipleCitiesByCyclePOJO = connectionManager.getMultipleCitiesByCycle();
+//    }
 
     public String gettingCod() {
         return multipleCitiesByCyclePOJO.getCod();
@@ -20,46 +20,86 @@ public class ByCycleDTO {
     public Long gettingCount() {
         return multipleCitiesByCyclePOJO.getCount();
     }
+    public java.util.List<sparta.eng61.com.POJOByCycle.List> gettingList() {
+        return multipleCitiesByCyclePOJO.getList();
+    }
 
     public String gettingMessage() {
         return multipleCitiesByCyclePOJO.getMessage();
     }
-
-    public Clouds gettingClouds() {
-        return list.getClouds();
+//list getter
+    public long getClouds(){
+        return list.getClouds().getAll();
     }
 
-    public Coord gettingCoord() {
-        return list.getCoord();
+    public double getCoordLat() {
+        return list.getCoord().getLat();
     }
 
-    public Long gettingDt() {
+    public double getCoordLon() {
+        return list.getCoord().getLon();
+    }
+
+    public Long getDT(){
         return list.getDt();
     }
 
-    public Object gettingRain() {
+    public Long getId(){
+        return list.getId();
+    }
+    public String getName(){
+        return list.getName();
+    }
+
+    public Object getRain() {
         return list.getRain();
     }
 
-    public Object gettingSnow() {
+    public Object getSnow() {
         return list.getSnow();
     }
-
-    public Sys gettingSys() {
-        return list.getSys();
+//sys getter
+    public String getCountry() {
+        return list.getSys().getCountry();
+    }
+//main getters
+    public double getPressure(){
+        return list.getMain().getPressure();
     }
 
-    public java.util.List<Weather> gettingWeather() {
+    public long getHumidity () {
+        return list.getMain().getHumidity();
+    }
+    public double getTemp () {
+        return list.getMain().getTemp();
+    }
+
+    public double getTempMax () {
+        return list.getMain().getTempMax();
+    }
+
+    public double getTempMin () {
+        return list.getMain().getTempMin();
+    }
+
+//weather getters
+    public java.util.List<Weather> getWeather() {
         return list.getWeather();
     }
-
-    public Wind gettingWind() {
-        return list.getWind();
+//wind getters
+    public double getSpeed() {
+        return list.getWind().getSpeed();
     }
 
-    public java.util.List<sparta.eng61.com.POJOByCycle.List> gettingList() {
-        return multipleCitiesByCyclePOJO.getList();
+    public long getDeg() {
+        return list.getWind().getDeg();
     }
+
+    public double getGust(){
+        return list.getWind().getGust();
+    }
+
+
 
 
 }

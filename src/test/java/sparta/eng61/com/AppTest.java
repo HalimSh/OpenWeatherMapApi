@@ -12,11 +12,9 @@ import org.junit.jupiter.api.Test;
  */
 public class AppTest 
 {
-//    HeadersDTO headersDTO = new HeadersDTO("HTTP URL");
-    //CityNameDTO cityNameDTO = new CityNameDTO("HTTP URL");
-    ConnectionManager manager = new ConnectionManager();
-    Controller controller = new Controller();
-//    DTO byname = manager.getByName("London");
+    HeadersDTO headersDTO = new HeadersDTO("HTTP URL");
+    CityNameDTO cityNameDTO = new CityNameDTO("HTTP URL");
+
     /**
      * Rigorous Test :-)
      */
@@ -29,13 +27,12 @@ public class AppTest
     @Test
     @DisplayName("Checking the Day, Date and time of when the request was made.")
     public void dayDateTimeTest(){
-//        manager.getByName("London");
-//        Assertions.assertEquals("London", byname.getClass().getName());
+        Assertions.assertEquals("openresty",headersDTO.getServer());
     }
 
-//    @Test
-//    @DisplayName("Checking Longitude")
-//    public void lonTest(){
-//        Assertions.assertEquals(-0.13,cityNameDTO.getCroodLon());
-//    }
+    @Test
+    @DisplayName("Checking Longitude")
+    public void lonTest(){
+        Assertions.assertEquals(-0.13,cityNameDTO.getCoordLon());
+    }
 }

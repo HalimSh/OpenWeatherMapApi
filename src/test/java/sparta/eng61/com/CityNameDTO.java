@@ -2,31 +2,45 @@ package sparta.eng61.com;
 
 import sparta.eng61.com.POJOByName.*;
 
-public class CityNameDTO extends DTO{
+public class CityNameDTO {
 
     private CityNamePOJO cityNamePOJO;
     private ConnectionManager connectionManager;
-    Injector injector = new Injector();
 
-
-    public CityNameDTO() {
+    public CityNameDTO(String name) {
         connectionManager = new ConnectionManager();
-        cityNamePOJO = injector.getPojoPayload();
+        cityNamePOJO = connectionManager.getByName(name);
+    }
+    public CityNameDTO(String cityName, String stateCode) {
+        connectionManager = new ConnectionManager();
+        cityNamePOJO = connectionManager.getUSCityURL(cityName,stateCode);
     }
 
+
     // Coord Getters
-    public double getCroodLat() {
+    public double getCoordLat() {
         return cityNamePOJO.getCoord().getLat();
     }
 
-    public double getCroodLon() {
+    public double getCoordLon() {
         return cityNamePOJO.getCoord().getLon();
     }
 
     // Weather Getters
+    public int getWeatherDesc(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
+    }
+    public int getWeatherIcon(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
+    }
     public int getWeatherID(int option) {
         return cityNamePOJO.getWeather().indexOf(option);
     }
+    public int getWeatherMain(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
+    }
+
+
 
     //Clouds Getters
     public long getClouds() {
