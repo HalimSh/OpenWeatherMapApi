@@ -82,8 +82,9 @@ public class CityIDsDTO {
 
     //Weather getters
 
-    public int getWeatherID(int option){
-        return lists.getWeather().indexOf(option);
+    //weather getters
+    public List<Weather> getWeather() {
+        return lists.getWeather();
     }
     //Name getter
     public String getName(){

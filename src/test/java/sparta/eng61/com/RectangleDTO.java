@@ -1,9 +1,11 @@
-package java.sparta.eng61.com;
+package sparta.eng61.com;
 
 import sparta.eng61.com.POJOByRectangle.MultipleCitiesInRectanglePOJO;
 import sparta.eng61.com.POJOByRectangle.RectLists;
 
-import java.sparta.eng61.com.ConnectionManager;
+import sparta.eng61.com.POJOByRectangle.Weather;
+
+import java.util.List;
 
 public class RectangleDTO {
     private MultipleCitiesInRectanglePOJO multipleCitiesInRectanglePOJO;
@@ -43,11 +45,10 @@ public class RectangleDTO {
     public double getRainType() {
         return rectLists.getRain().getH();
     }
-        //Weather getters
-        public int getWeatherID ( int option){
-            return rectLists.getWeather().indexOf(option);
-        }
-        //Name getter
+        //weather getters
+        public List<Weather> getWeather() {
+            return rectLists.getWeather();
+        }        //Name getter
         public String getName () {
             return rectLists.getName();
         }
