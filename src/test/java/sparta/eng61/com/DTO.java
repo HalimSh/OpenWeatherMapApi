@@ -6,9 +6,9 @@ public abstract class DTO {
     private ByCycleDTO byCycleDTO;
     private HeadersDTO headersDTO;
 
-    public DTO() {
-    cityNameDTO = new CityNameDTO();
-    byCycleDTO = new ByCycleDTO();
-    headersDTO = new HeadersDTO("dvlnhjdskv.k");
-    }
+//    public DTO() {
+//    cityNameDTO = new CityNameDTO();
+//    byCycleDTO = new ByCycleDTO();
+//    headersDTO = new HeadersDTO("dvlnhjdskv.k");
+//    }
 }

@@ -6,6 +6,7 @@ import sparta.eng61.com.POJOByCycle.MultipleCitiesByCyclePOJO;
 import sparta.eng61.com.POJOByName.CityNamePOJO;
 import sparta.eng61.com.POJOByRectangle.MultipleCitiesInRectanglePOJO;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -21,22 +22,27 @@ public class ConnectionManager {
     private MultipleCitiesInRectanglePOJO multipleCitiesInRectanglePOJO;
     private MultipleCitiesByCyclePOJO multipleCitiesByCyclePOJO;
     private MultipleCityIDsPOJO multipleCityIDsPOJO;
-    private static Properties properties;
-    Injector injector;
-
-    CityNameDTO cityNameDTO = new CityNameDTO();
+    private static Properties properties = new Properties();
 
 
-    public DTO getByName(String name){
+    CityNameDTO cityNameDTO;
 
-        String url = "api.openweathermap.org/data/2.5/weather?q=" + name + "&appid=" + properties.getProperty("apikey");
+
+    public CityNameDTO getByName(String name){
+//        CityNameDTO dto = new CityNameDTO();
         try {
-            cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
-            injector.setPojoPayload(cityNamePOJO);
+            properties.load(new FileReader("src/test/resources/ApiKey.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return DTO;
+        String url = "http://api.openweathermap.org/data/2.5/weather?q="+name+"&appid="+properties.getProperty("apikey");
+        try {
+            cityNamePOJO = objectMapper.readValue(new URL(url), CityNamePOJO.class);
+//            System.out.println(cityNamePOJO.getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cityNameDTO;
     }
 
 
