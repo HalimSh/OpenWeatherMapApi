@@ -33,6 +33,6 @@ public class AppTest
     @Test
     @DisplayName("Checking Longitude")
     public void lonTest(){
-        Assertions.assertEquals(-0.13,cityNameDTO.getCroodLon());
+        Assertions.assertEquals(-0.13,cityNameDTO.getCoordLon());
     }
 }

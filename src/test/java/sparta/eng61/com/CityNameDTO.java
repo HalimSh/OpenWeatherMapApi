@@ -12,7 +12,7 @@ public class CityNameDTO {
         cityNamePOJO = connectionManager.getByName(name);
     }
 //    public CityNameDTO(String cityName, String stateCode) {
-//        connectionManager = new ConnectionManager();
+//        connectionManager = new ConnooectionManager();
 //        cityNamePOJO = connectionManager.getUSCityURL(cityName,stateCode);
 //    }
 //
@@ -22,18 +22,29 @@ public class CityNameDTO {
 //    }
 
     // Coord Getters
-    public double getCroodLat() {
+    public double getCoordLat() {
         return cityNamePOJO.getCoord().getLat();
     }
 
-    public double getCroodLon() {
+    public double getCoordLon() {
         return cityNamePOJO.getCoord().getLon();
     }
 
     // Weather Getters
+    public int getWeatherDesc(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
+    }
+    public int getWeatherIcon(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
+    }
     public int getWeatherID(int option) {
         return cityNamePOJO.getWeather().indexOf(option);
     }
+    public int getWeatherMain(int option) {
+        return cityNamePOJO.getWeather().indexOf(option);
+    }
+
+
 
     //Clouds Getters
     public long getClouds() {

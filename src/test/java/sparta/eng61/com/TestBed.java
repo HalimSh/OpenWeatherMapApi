@@ -27,48 +27,43 @@ public class TestBed {
         return responseCode;
     }
 
-    public Clouds getClouds () {
-        return cityNamePOJO.getClouds();
-    }
-
-    public Long getVisibility () {
-        return cityNamePOJO.getVisibility();
-    }
-
-    @Test
-    public void checkVisibility () {
-        Assertions.assertEquals(10000, getVisibility());
-    }
-
     @Test
     public void checkResponseCode () throws IOException {
         Assertions.assertEquals(200, getResponseCode());
     }
 
     @Test
-    public void checkHeaderOne() {
+    public void checkServer() {
         Assertions.assertEquals("openresty", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Server"));
     }
 
     @Test
-    public void checkHeaderTwo() {
+    public void checkContentType() {
         Assertions.assertEquals("application/json; charset=utf-8", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Content-Type"));
     }
-
     @Test
-    public void checkHeaderThree() {
-        Assertions.assertEquals("462", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Content-Length"));
+    public void ContentLength() {
+        Assertions.assertEquals("461", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Content-Length"));
     }
-
     @Test
-    public void checkHeaderFour() {
+    public void Connection() {
         Assertions.assertEquals("keep-alive", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Connection"));
     }
 
     @Test
-    public void checkClouds () {
-        Assertions.assertNull(getClouds());
+    public void checkXCacheKey() {
+        Assertions.assertEquals("/data/2.5/weather?q=london", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("X-Cache-Key"));
     }
-
+    @Test
+    public void checkACAOrigin() {
+        Assertions.assertEquals("*", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Access-Control-Allow-Origin"));
+    }
+    @Test
+    public void checkACACredentials() {
+        Assertions.assertEquals("TRUE", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Access-Control-Allow-Credentials"));
+    } @Test
+    public void checkACAMethods() {
+        Assertions.assertEquals("GET, POST", connectionManager.readAPIHeaders("http://api.openweathermap.org/data/2.5/weather?q=London&appid=bd61d6c13354008b5b677957c1e27f5a").getHeaderField("Access-Control-Allow-Methods"));
+    }
 
 }
