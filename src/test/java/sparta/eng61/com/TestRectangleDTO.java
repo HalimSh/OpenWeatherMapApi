@@ -1,10 +1,13 @@
-package java.sparta.eng61.com;
+package sparta.eng61.com;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sparta.eng61.com.RectangleDTO;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import sparta.eng61.com.RectangleDTO;
 
 public class TestRectangleDTO {
     ConnectionManager connectionManager = new ConnectionManager();
@@ -59,10 +62,19 @@ public class TestRectangleDTO {
     }
 
     @Test
-    public void checkWeatherID() {
-        Assertions.assertEquals(500, rectangleDTO.getWeatherID());
+    public void checkWeatherDescription() {
+        Assertions.assertEquals("rain and drizzle", rectangleDTO.getWeather().get(0));
     }
 
+    @Test
+    public void checkWeatherID() {
+        Assertions.assertEquals(311, rectangleDTO.getWeather().get(2));
+    }
+
+    @Test
+    public void checkWeatherMain() {
+        Assertions.assertEquals("Drizzle", rectangleDTO.getWeather().get(3));
+    }
     @Test
     public void checkName() {
         Assertions.assertEquals("Yafran", rectangleDTO.getName());

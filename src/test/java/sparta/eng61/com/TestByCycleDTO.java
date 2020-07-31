@@ -1,4 +1,4 @@
-package java.sparta.eng61.com;
+package sparta.eng61.com;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import sparta.eng61.com.ByCycleDTO;
 
-public class TestPOJOByCycle {
+public class TestByCycleDTO {
     ConnectionManager connectionManager = new ConnectionManager();
     URL url;
 
@@ -48,76 +48,76 @@ public class TestPOJOByCycle {
 
     @Test
     public void checkClouds() {
-        Assertions.assertEquals(75, byCycleDTO.gettingClouds().getAll());
+        Assertions.assertEquals(75, byCycleDTO.getClouds());
     }
 
     @Test
     public void checkCoordLat() {
-        Assertions.assertEquals(57.0333, byCycleDTO.gettingCoord().getLat());
+        Assertions.assertEquals(57.0333, byCycleDTO.getCoordLat());
     }
 
     @Test
     public void checkCoordLon() {
-        Assertions.assertEquals(-2.15, byCycleDTO.gettingCoord().getLon());
+        Assertions.assertEquals(-2.15, byCycleDTO.getCoordLon());
     }
 
     @Test
     public void checkDt() {
-        Assertions.assertEquals(1521204600, byCycleDTO.gettingDt());
+        Assertions.assertEquals(1521204600, byCycleDTO.getDT());
     }
 
     @Test
     public void checkRain() {
-        Assertions.assertEquals(null, byCycleDTO.gettingRain());
+        Assertions.assertEquals(null, byCycleDTO.getRain());
     }
 
     @Test
     public void checkSnow() {
-        Assertions.assertEquals(null, byCycleDTO.gettingSnow());
+        Assertions.assertEquals(null, byCycleDTO.getSnow());
     }
 
     @Test
-    public void checkSys() {
-        Assertions.assertEquals("", byCycleDTO.gettingSys());
+    public void checkCountry() {
+        Assertions.assertEquals("", byCycleDTO.getCountry());
     }
 
     //testing weather
 
     @Test
     public void checkWeatherID() {
-        Assertions.assertEquals(311, byCycleDTO.gettingWeather().get(0));
+        Assertions.assertEquals(311, byCycleDTO.getWeather().get(0));
     }
 
     @Test
     public void checkWeatherMain() {
-        Assertions.assertEquals("Drizzle", byCycleDTO.gettingWeather().get(1));
+        Assertions.assertEquals("Drizzle", byCycleDTO.getWeather().get(1));
     }
 
     @Test
     public void checkWeatherDescription() {
-        Assertions.assertEquals("rain and drizzle", byCycleDTO.gettingWeather().get(2));
+        Assertions.assertEquals("rain and drizzle", byCycleDTO.getWeather().get(2));
     }
 
     @Test
     public void checkWeatherIcon() {
-        Assertions.assertEquals("09d", byCycleDTO.gettingWeather().get(3));
+        Assertions.assertEquals("09d", byCycleDTO.getWeather().get(3));
     }
 
     //testing wind
 
     @Test
     public void checkWindSpeed() {
-        Assertions.assertEquals(9.3, byCycleDTO.gettingWind().getSpeed());
+        Assertions.assertEquals(9.3, byCycleDTO.getSpeed());
     }
 
     @Test
     public void checkWindDeg() {
-        Assertions.assertEquals(120, byCycleDTO.gettingWind().getDeg());
+        Assertions.assertEquals(120, byCycleDTO.getDeg());
     }
 
     @Test
     public void checkWindGust() {
-        Assertions.assertEquals(18, byCycleDTO.gettingWind().getGust());
+        Assertions.assertEquals(18, byCycleDTO.getGust());
     }
 
     //testing list
@@ -136,26 +136,26 @@ public class TestPOJOByCycle {
 
     @Test
     public void checkMainTemp() {
-        Assertions.assertEquals(275.15, byCycleDTO.gettingMain().getTemp());
+        Assertions.assertEquals(275.15, byCycleDTO.getTemp());
     }
 
     @Test
     public void checkMainPressure() {
-        Assertions.assertEquals(1010, byCycleDTO.gettingMain().getPressure());
+        Assertions.assertEquals(1010, byCycleDTO.getPressure());
     }
 
     @Test
     public void checkMainHumidity() {
-        Assertions.assertEquals(93, byCycleDTO.gettingMain().getHumidity());
+        Assertions.assertEquals(93, byCycleDTO.getHumidity());
     }
 
     @Test
     public void checkMainTempMin() {
-        Assertions.assertEquals(275.15, byCycleDTO.gettingMain().getTempMin());
+        Assertions.assertEquals(275.15, byCycleDTO.getTempMin());
     }
 
     @Test
     public void checkMainTempMax() {
-        Assertions.assertEquals(275.15, byCycleDTO.gettingMain().getTempMax());
+        Assertions.assertEquals(275.15, byCycleDTO.getTempMax());
     }
 }

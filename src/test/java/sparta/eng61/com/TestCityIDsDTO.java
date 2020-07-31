@@ -1,12 +1,15 @@
-package java.sparta.eng61.com;
+package sparta.eng61.com;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import sparta.eng61.com.CityIDsDTO;
 
-public class TestCityIDs {
+public class TestCityIDsDTO {
     ConnectionManager connectionManager = new ConnectionManager();
     URL url;
 
@@ -44,7 +47,10 @@ public class TestCityIDs {
     }
 
     @Test
-    public void checkWindDeg() {Assertions.assertEquals(200, cityIDsDTO.getWindDeg());}
+    public void checkWindDeg() {
+        Assertions.assertEquals(200, cityIDsDTO.getWindDeg());
+    }
+
     @Test
     public void checkVisibility() {
         Assertions.assertEquals(10000, cityIDsDTO.getVisibility());
@@ -52,7 +58,7 @@ public class TestCityIDs {
 
     @Test
     public void checkClouds() {
-        Assertions.assertEquals(0, rectangleDTO.getClouds());
+        Assertions.assertEquals(0, cityIDsDTO.getClouds());
     }
 
     @Test
@@ -96,8 +102,18 @@ public class TestCityIDs {
     }
 
     @Test
+    public void checkWeatherDescription() {
+        Assertions.assertEquals("rain and drizzle", cityIDsDTO.getWeather().get(0));
+    }
+
+    @Test
     public void checkWeatherID() {
-        Assertions.assertEquals(800, cityIDsDTO.getWeatherID());
+        Assertions.assertEquals(311, cityIDsDTO.getWeather().get(2));
+    }
+
+    @Test
+    public void checkWeatherMain() {
+        Assertions.assertEquals("Drizzle", cityIDsDTO.getWeather().get(3));
     }
 
     @Test
@@ -128,4 +144,5 @@ public class TestCityIDs {
     @Test
     public void checkTempMin() {
         Assertions.assertEquals(-11, cityIDsDTO.getTempMin());
+    }
 }

@@ -67,7 +67,7 @@ public class TestBed {
 
     @Test
     public void checkClouds () {
-        Assertions.assertEquals(null, getClouds());
+        Assertions.assertNull(getClouds());
     }
 
 
