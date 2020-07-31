@@ -109,10 +109,10 @@ public class TestByNameDTO {
         Assertions.assertEquals(90, cityNameDTO.getWindDeg());
     }
 
-//    @Test
-//    public void checkWindDT() {
-//        Assertions.assertEquals(120, cityNameDTO.getDT());
-//    }
+    @Test
+    public void checkDT() {
+        Assertions.assertEquals(1596195585, cityNameDTO.getDT());
+    }
 
     //testing main
 
